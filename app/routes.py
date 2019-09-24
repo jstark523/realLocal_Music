@@ -6,7 +6,7 @@ from app.forms import newArtistForm
 @app.route('/')
 @app.route('/index')
 def index():
-    greeting = "Welcome to music Shmusic!"
+    greeting = "Welcome to music hmusic!"
     description = "Find out about music in Ithaca"
     return render_template('index.html', greeting=greeting, description=description)
 
