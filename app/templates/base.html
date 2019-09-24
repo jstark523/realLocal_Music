@@ -1,0 +1,21 @@
+<html>
+    <head>
+        <title>Music Shmusic</title>
+    </head>
+    <body>
+        <div><a href="/index">Music Shmusic:</a>
+        <a href="/artists">Artists</a>
+        <a href="/newArtist">New Artist</a></div>
+        <hr>
+        {% with messages = get_flashed_messages() %}
+            {% if messages %}
+                <ul>
+                {% for message in messages %}
+                <li>{{ message }}</li>
+                {% endfor %}
+                </ul>
+            {% endif %}
+        {% endwith %}
+        {% block content %}{% endblock %}
+    </body>
+</html>

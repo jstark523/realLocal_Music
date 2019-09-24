@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h1>{{ name }}</h1>
+    <h2>{{ hometown }}</h2>
+    <div><p>{{ bio }}</p></div>
+    {% if events == null %}
+    {% else%}
+    <h2>Events:</h2>
+    {% for event in events %}
+        <ul><li>{{ event }}</li></ul>
+    {% endfor %}
+    {% endif %}
+{% endblock %}
