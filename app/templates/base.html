@@ -1,3 +1,6 @@
+{% extends 'bootstrap/base.html' %}
+
+{% block content %}
 <html>
     <head>
         <title>Music Shmusic</title>
@@ -5,7 +8,15 @@
     <body>
         <div><a href="/index">Music Shmusic:</a>
         <a href="/artists">Artists</a>
-        <a href="/newArtist">New Artist</a></div>
+        {% if current_user.is_anonymous %}
+            <a href="{{ url_for('login') }}">Login</a>
+            {% else %}
+            <a href="/newArtist">New Artist</a>
+            <a href="/newVenue">New Venue</a>
+            <a href="/newEvent">New Event</a>
+            <a href="{{ url_for('logout') }}">Logout</a>
+            {% endif %}
+        </div>
         <hr>
         {% with messages = get_flashed_messages() %}
             {% if messages %}
@@ -16,6 +27,9 @@
                 </ul>
             {% endif %}
         {% endwith %}
-        {% block content %}{% endblock %}
+        <div class="container">
+            {% block app_content %}{% endblock %}
+        </div>
     </body>
 </html>
+{% endblock %}
